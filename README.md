@@ -33,7 +33,7 @@ Start the server
   
 ## Tech Stack
 
-React, CSS, RapidApi
+HTML, CSS, JS, React, RapidApi
 
 
   
