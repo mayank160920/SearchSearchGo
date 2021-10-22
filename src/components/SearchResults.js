@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+/* eslint-disable react/jsx-no-target-blank */
+import React, {useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useResultsContext } from '../context/ResultsContextProvider'
 import Loader from "react-loader-spinner";
@@ -14,6 +15,7 @@ function SearchResults() {
         }
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => updateResults(), [searchTerm, location.pathname])
 
     if (loading) {
