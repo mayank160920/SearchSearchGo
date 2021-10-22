@@ -1,15 +1,38 @@
 import React from 'react';
-import {AiFillSetting,AiOutlineMenuFold} from 'react-icons/ai';
-import Logo from '../assets/logo.png';
+import { BsFillMoonFill, BsFillSunFill } from 'react-icons/bs';
 
-function Header() {
+function Header(props) {
+    const theme = {
+        night: {
+            "--bgcolor": "#fff",
+            "--fgcolor": "#666",
+            "--hlcolor": "#fd7014"
+        },
+        day: {
+            "--bgcolor": "#000",
+            "--fgcolor": "#fff",
+            "--hlcolor": "#fd7014"
+        }
+    }
+
+    function toggleNightMode() {
+        props.setNightMode(!props.nightMode);
+        Object.entries(props.nightMode ? theme.night : theme.day)
+            .map((entry) => (
+                document.documentElement.style.setProperty(entry[0], entry[1])
+            )
+        )
+    }
+
     return (
         <div className="header">
-            <AiOutlineMenuFold></AiOutlineMenuFold>
-            <img src={Logo} alt="Unable To Load" height="100px"></img>
-            <AiFillSetting></AiFillSetting>
+            {
+                props.nightMode
+                    ? <BsFillSunFill class="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillSunFill>
+                    : <BsFillMoonFill class="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillMoonFill>
+            }
         </div>
     )
 }
 
-export default Header
+export default Header;
