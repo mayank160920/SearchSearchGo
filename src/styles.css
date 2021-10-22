@@ -216,6 +216,7 @@ body {
 }
 
 .news-result-description {
+    color: var(--fgcolor);
     display : flex;
     justify-content: flex-start;
     font-size : 14px;
