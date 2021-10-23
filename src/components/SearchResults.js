@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, {useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useResultsContext } from '../context/ResultsContextProvider'
 import Loader from "react-loader-spinner";
 
 function SearchResults() {
     const location = useLocation();
-    const { results, getResults, searchTerm, loading } = useResultsContext();
+    const { results, getResults, searchTerm, loading, error } = useResultsContext();
+    console.log(results, searchTerm, loading, error)
 
     async function updateResults() {
         if (searchTerm.length !== 0) {
@@ -19,7 +20,11 @@ function SearchResults() {
     useEffect(() => updateResults(), [searchTerm, location.pathname])
 
     if (loading) {
-        return <Loader type="ThreeDots" color="#fd7014" height={50} width={50} style={{textAlign: 'center'}}/>
+        return <Loader type="ThreeDots" color="#fd7014" height={50} width={50} style={{ textAlign: 'center' }} />
+    }
+
+    if (error) {
+        return (<p style={{ textAlign: "center" }}>Something Went Wrong :(</p>);
     }
 
     if (searchTerm.length === 0) {

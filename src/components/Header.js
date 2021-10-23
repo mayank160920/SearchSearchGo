@@ -28,8 +28,8 @@ function Header(props) {
         <div className="header">
             {
                 props.nightMode
-                    ? <BsFillSunFill class="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillSunFill>
-                    : <BsFillMoonFill class="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillMoonFill>
+                    ? <BsFillSunFill className="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillSunFill>
+                    : <BsFillMoonFill className="nightToggler" color='#fd7014' onClick={() => toggleNightMode()}></BsFillMoonFill>
             }
         </div>
     )
