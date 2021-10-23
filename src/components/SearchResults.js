@@ -24,7 +24,7 @@ function SearchResults() {
     }
 
     if (error) {
-        return (<p style={{ textAlign: "center" }}>Something Went Wrong :(</p>);
+        return (<p style={{ textAlign: "center", color: "var(--fgcolor)" }}>Something Went Wrong :(</p>);
     }
 
     if (searchTerm.length === 0) {
