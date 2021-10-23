@@ -57,6 +57,7 @@ body {
 
 /* search box */
 .searchBox {
+    position : relative;
     display : flex;
     justify-content: center;
     align-items: center;
@@ -239,4 +240,48 @@ body {
     color : var(--fgcolor);
     margin-bottom: auto;
     text-align: center;
+}
+
+/* suggestions */
+.suggestionList {
+    background: var(--bgcolor);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    max-height: 200px;
+    width: 100%;
+    margin-top: 40px;
+    overflow: overlay;
+    scroll-behavior: smooth;
+    /* box-shadow: 0px 0px 10px 0px var(--fgcolor); */
+
+    border-color: var(--fgcolor);
+    border-style: solid;
+    border-top: 0px;
+    border-width: thin;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.suggestion {
+    color : var(--fgcolor);
+    font-size: inherit;
+    font-weight: 300;
+    height: 35px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+.suggestion:hover {
+    cursor: pointer;
+    background-color: var(--hlcolor);
 }
